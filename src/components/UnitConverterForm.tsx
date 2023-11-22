@@ -1,4 +1,4 @@
-import { styled } from '@mui/material/styles';
+//import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { useContext, useState, useMemo } from 'react';
@@ -22,13 +22,13 @@ export default function UnitConverterForm() {
         return selectedUnit ? allSubUnits(selectedUnit as unitType) : [];
     }, [selectedUnit]);
 
-    const Item = styled(Paper)(({ theme }) => ({
-        backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-        ...theme.typography.body2,
-        padding: theme.spacing(1),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-      }));
+    // const Item = styled(Paper)(({ theme }) => ({
+    //     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    //     ...theme.typography.body2,
+    //     padding: theme.spacing(1),
+    //     textAlign: 'center',
+    //     color: theme.palette.text.secondary,
+    //   }));
 
     function handleFromUnitChange(subUnit: string) {
         setFromUnit(subUnit);
@@ -42,8 +42,8 @@ export default function UnitConverterForm() {
         setInput(input);
     }
 
-    function handleInputsChange(input: number){
-        setInputs(input)
+    function handleInputsChange(inputs: number){
+        setInputs(inputs)
     }
     const request = useMemo(() => unitsConversion(input, fromUnit, toUnit), [input, fromUnit, toUnit]);
     const response = useMemo(() => unitsConversion(inputs, fromUnit,toUnit), [inputs, fromUnit, toUnit]);
@@ -52,14 +52,14 @@ export default function UnitConverterForm() {
         <Paper>
             <Grid container spacing={2}>
                 <Grid item xs={8}>
-                    <Item>
+                    {/* <Item> */}
                     <SubUnitsSelect label="From" subUnits={subUnits} selected={fromUnit} onSubUnitChange={handleFromUnitChange} onInputChange={handleInputChange} data={response}></SubUnitsSelect>
-                    </Item>
+                    {/* </Item> */}
                 </Grid>
                 <Grid item xs={8}>
-                    <Item>
+                    {/* <Item> */}
                         <SubUnitsSelect label="To" subUnits={subUnits} selected={toUnit} onSubUnitChange={handleToUnitChange} onInputChange={handleInputsChange} data={request}></SubUnitsSelect>
-                    </Item>
+                    {/* </Item> */}
                 </Grid>
             </Grid>
         </Paper>

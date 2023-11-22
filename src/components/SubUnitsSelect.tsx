@@ -28,18 +28,16 @@ export default function SubUnitsSelect({label, subUnits, selected, onSubUnitChan
 
   return (
     <>
-    <Grid container spacing={10}>
       <Grid item xs={6}>
         <TextField
-            type="number"
-            variant="outlined"
+            type='number'
+            variant='outlined'
             value={result}
             onChange={handleInputChange}
             style={{ marginBottom: 16 }}
             >
         </TextField>
       </Grid>
-    </Grid>
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>
         <InputLabel id="subUnit-select-input-label">{label} Unit</InputLabel>
